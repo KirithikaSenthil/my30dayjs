@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Console Tricks!</title>
+</head>
+<body>
+
+  <p onClick="makeGreen()">×BREAK×DOWN×</p>
+
+  <script>
+    const pnames = [{ name: 'Rupesh', age: 18 }, { name: 'Thanishka', age: 8 }];
+
+    function makeGreen() {
+      const p = document.querySelector('p');
+      p.style.color = '#BADA55';
+      p.style.fontSize = '50px';
+    }
+
+    // Regular
+    console.log('Hello');
+     // Interpolated
+    console.log('Hello %s, Welcome to my project','Kirithika');
+  // Styled
+    console.log('%c Hello Friend','font-size:50px; background: black;text-align:center;color:red');
+    // warning!
+    console.warn('UH-OH!');
+    // Error :|
+    console.error('Try again later');
+    // Info
+    console.info('Turning Coffee into Code');
+     // Testing
+    const p = document.querySelector('p');
+    console.assert(p.classList.contains('ouch'),'That is Wrong!');
+   // clearing
+    console.log();
+    // Viewing DOM Elements
+    console.log(p);
+    console.dir(p);
+   // console.clear();
+     // Grouping together
+    pnames.forEach(pnames=> {
+        console.groupCollapsed(`${pnames.name}`);
+        console.log(`Hi ${pnames.name}`);
+        console.log(`${pnames.name} is ${pnames.age} years old`);
+        console.groupEnd(`${pnames.name}`);
+    });
+    // counting
+    console.count('TADAA!');
+    console.count('OH-NO');
+    console.count('TADAA!');
+    console.count('TADAA!');
+    console.count('TADAA!');
+    console.count('OH-NO');
+
+    // timing
+    console.time('fetching data...');
+    fetch('https://api.github.com/users/wesbos')
+    .then(data=>data.json())
+    .then(data => {
+        console.timeEnd('fetching data');
+        console.log(data);
+    });
+
+
+  </script>
+</body>
+</html>
